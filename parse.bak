@@ -33,7 +33,7 @@
 //% token 定义终结符的语义值类型
 %token <type_char> CHAR
 %token <type_int> INT              /*指定INT的语义值是type_int，有词法分析得到的数值*/
-%token <type_id> ID ERRORID RELOP TYPE    /*指定ID,RELOP,TYPE 的语义值是type_id，有词法分析得到的标识符字符串*/
+%token <type_id> ID ERRORID STRING RELOP TYPE    /*指定ID,RELOP,TYPE,STRING 的语义值是type_id，有词法分析得到的标识符字符串*/
 %token <type_float> FLOAT          /*指定FLOAT的语义值是type_float，有词法分析得到的标识符字符串*/
 %token RETURN FOR SWITCH CASE COLON DEFAULT
 %token CASE_STMT CASE_STMT_LIST DEFAULT_STMT
@@ -141,6 +141,7 @@ Exp:    Exp ASSIGNOP Exp {$$=mknode(2,ASSIGNOP,yylineno,$1,$3);strcpy($$->type_i
       | ID            {$$=mknode(0,ID,yylineno);strcpy($$->type_id,$1);}
       | INT           {$$=mknode(0,INT,yylineno);$$->type_int=$1;$$->type=INT;}
       | CHAR          {$$=mknode(0,CHAR,yylineno);$$->type_char=$1;$$->type=CHAR;}
+      | STRING        {$$=mknode(0,STRING,yylineno);strcpy($$->type_id,$1);$$->type=STRING;}
       | FLOAT         {$$=mknode(0,FLOAT,yylineno);$$->type_float=$1;$$->type=FLOAT;}
       | LB Args RB    {$$=$2;} //数组
       | ID Arraylist  {$$=mknode(1,ID,yylineno,$2);strcpy($$->type_id,$1);} 
