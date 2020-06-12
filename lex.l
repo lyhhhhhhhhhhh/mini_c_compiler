@@ -22,7 +22,6 @@ ID   [A-Za-z][A-Za-z0-9]*
 INT [1-9][0-9]*|[0]
 FLOAT [0-9]*[.][0-9]+([eE][-+]?([1-9][0-9*]|[0]))?
 CHAR ['][^\n][']
-STRING ["][^\n]*["]
 
 %%
 {INT} {printf("(%s, INT)\n", yytext);yylval.type_int=atoi(yytext); return INT;}

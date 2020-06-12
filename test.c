@@ -7,6 +7,11 @@ int main()
     a[10] = 0;
     b = c;
     1++;
+    // test
+    1+2;
+    /*
+    test comment
+    */
     a[1] = 1;
     d = 2;
     b = 'b';
