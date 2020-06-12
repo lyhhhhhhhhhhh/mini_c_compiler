@@ -1,0 +1,28 @@
+int main()
+{
+    int a[10];
+    int 1d,c;
+    char b;
+    int d;
+    a[10] = 0;
+    b = c;
+    1++;
+    // test
+    1+2;
+    /*
+    test comment
+    */
+    a[1] = 1;
+    d = 2;
+    b = 'b';
+    if (d < 0)
+    {
+        d = d++;
+        ++d;
+    }
+    else
+    {
+        int x;
+    }
+    return 0;
+}
